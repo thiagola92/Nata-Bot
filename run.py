@@ -1,11 +1,10 @@
-from bot import BOT
-from bot import TOKEN
+from bot_info import BOT
+from bot_info import TOKEN
 
 # Bot commands
-from bot_default import close
-from bot_list import call_list
-from bot_list import add_list
-from bot_list import remove_list
+import bot_default
+import bot_list
+import bot_dice
 
 @BOT.event
 async def on_ready():
@@ -26,5 +25,6 @@ async def hello():
     print("Command hello")
     
     await BOT.say("Hello World!")
+    
 
 BOT.run(TOKEN)

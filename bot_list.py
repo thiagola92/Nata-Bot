@@ -1,13 +1,18 @@
-from bot import BOT
+from bot_info import BOT
+import re
+import os
 
 @BOT.command()
-async def call_list(subject = None):
+async def call_list(list_name = None):
     print("======================================")
     print("Command call_list")
     
     try:
-        subject_list = "list\\" + subject
-        file = open(subject_list, 'r')
+        if re.search("\.+", list_name) != None:
+            raise Exception("No permisson to use Wildcards")
+            
+        list_name_path = "list\\" + list_name
+        file = open(list_name_path, 'r')
         
         message = ""
         
@@ -21,51 +26,62 @@ async def call_list(subject = None):
         await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
     
 @BOT.command()
-async def add_list(subject = None, item = None):
+async def add_list(list_name = None, item = None):
     print("======================================")
     print("Command add_list")
     
     try:
-        subject_list = "list\\" + subject
-        file = open(subject_list, 'a')
+        if re.search("\.+", list_name) != None:
+            raise Exception("No permisson to use Wildcards")
+            
+        list_name_path = "list\\" + list_name
+        file = open(list_name_path, 'a')
         
-        file.write("\n" + item)
+        file.write(item + "\n")
         file.close()
+        await BOT.say("Chamou?")
     except Exception as e:
         await BOT.say("```" + str(e) + "```")
         await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
 
 @BOT.command()
-async def create_list(subject = None):
+async def create_list(list_name = None):
     print("======================================")
     print("Command create_list")
     
     try:
-        subject_list = "list\\" + subject
-        file = open(subject_list, 'w')
+        if re.search("\.+", list_name) != None:
+            raise Exception("No permisson to use Wildcards")
+        
+        list_name_path = "list\\" + list_name
+        file = open(list_name_path, 'w')
         
         file.close()
+        await BOT.say("Ta")
     except Exception as e:
         await BOT.say("```" + str(e) + "```")
         await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
     
 @BOT.command()
-async def remove_list(subject = None, item = None):
+async def remove_list(list_name = None, item = None):
     print("======================================")
     print("Command remove_list")
     
     try:
-        subject_list = "list\\" + subject
-        file = open(subject_list, 'r')
+        if re.search("\.+", list_name) != None:
+            raise Exception("No permisson to use Wildcards")
+            
+        list_name_path = "list\\" + list_name
+        file = open(list_name_path, 'r')
         
         new_list = ""
         
         for line in file:
-            new_list = new_list + line
-        new_list = new_list.split()
+            new_list += line
+        new_list = new_list.split("\n")
         
         file.close()
-        file = open(subject_list, 'w')
+        file = open(list_name_path, 'w')
         
         for line in new_list:
             if(line == item):
@@ -73,6 +89,23 @@ async def remove_list(subject = None, item = None):
             file.write(line + "\n")
             
         file.close()
+        await BOT.say("Filtrou")
+    except Exception as e:
+        await BOT.say("```" + str(e) + "```")
+        await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
+        
+@BOT.command()
+async def delete_list(list_name = None):
+    print("======================================")
+    print("Command delete_list")
+    
+    try:
+        if re.search("\.+", list_name) != None:
+            raise Exception("No permisson to use Wildcards")
+            
+        list_name_path = "list\\" + list_name
+        os.remove(list_name_path)
+        await BOT.say("TA PEGANDO FOGO BIXO")
     except Exception as e:
         await BOT.say("```" + str(e) + "```")
         await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
