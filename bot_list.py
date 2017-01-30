@@ -17,7 +17,7 @@ async def call_list(list_name = None):
         message = ""
         
         for line in file:
-            message = message + line
+            message += line
             
         file.close()
         await BOT.say(message)
@@ -26,18 +26,20 @@ async def call_list(list_name = None):
         await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
     
 @BOT.command()
-async def add_list(list_name = None, item = None):
+async def add_list(list_name = None, *items):
     print("======================================")
     print("Command add_list")
     
     try:
         if re.search("\.+", list_name) != None:
             raise Exception("No permisson to use Wildcards")
-            
+                
         list_name_path = "list\\" + list_name
         file = open(list_name_path, 'a')
-        
-        file.write(item + "\n")
+            
+        for item in items:
+            file.write(item + "\n")
+            
         file.close()
         await BOT.say("Chamou?")
     except Exception as e:
@@ -63,7 +65,7 @@ async def create_list(list_name = None):
         await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
     
 @BOT.command()
-async def remove_list(list_name = None, item = None):
+async def remove_list(list_name = None, *items):
     print("======================================")
     print("Command remove_list")
     
@@ -84,7 +86,7 @@ async def remove_list(list_name = None, item = None):
         file = open(list_name_path, 'w')
         
         for line in new_list:
-            if(line == item):
+            if(remove_line(line, items) == True):
                 continue
             file.write(line + "\n")
             
@@ -93,6 +95,13 @@ async def remove_list(list_name = None, item = None):
     except Exception as e:
         await BOT.say("```" + str(e) + "```")
         await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
+        
+def remove_line(line, items):
+    for item in items:
+        if (line == item):
+            return True
+            
+    return False
         
 @BOT.command()
 async def delete_list(list_name = None):

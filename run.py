@@ -4,7 +4,7 @@ from bot_info import TOKEN
 # Bot commands
 import bot_default
 import bot_list
-import bot_dice
+import bot_random
 
 @BOT.event
 async def on_ready():
