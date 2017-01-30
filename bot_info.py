@@ -1,3 +1,4 @@
+import discord
 from discord.ext.commands import Bot
 
 CLIENT_ID = 272662322290622464

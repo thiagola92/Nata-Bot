@@ -22,5 +22,4 @@ async def math(*expression):
         expression = eval(expression_string)
         await BOT.say(str(expression))
     except Exception as e:
-        await BOT.say("```" + str(e) + "```")
-        await BOT.say("Hey newbie! Use **!help COMMAND** to learn more about it")
+        await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
