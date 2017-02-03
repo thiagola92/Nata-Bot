@@ -1,7 +1,7 @@
 from bot_info import BOT
 
 @BOT.command()
-async def close():
+async def shutdown():
     print("======================================")
     print("Command close")
     
