@@ -2,7 +2,7 @@ from bot_info import BOT
 import re
 import os
 
-@BOT.command()
+@BOT.command(aliases=["cl"])
 async def call_list(list_name = None):
     print("======================================")
     print("Command call_list")
@@ -24,7 +24,7 @@ async def call_list(list_name = None):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
     
-@BOT.command()
+@BOT.command(aliases=["al"])
 async def add_list(list_name = None, *items):
     print("======================================")
     print("Command add_list")
@@ -44,10 +44,10 @@ async def add_list(list_name = None, *items):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
 
-@BOT.command()
-async def create_list(list_name = None):
+@BOT.command(aliases=["nl"])
+async def new_list(list_name = None):
     print("======================================")
-    print("Command create_list")
+    print("Command new_list")
     
     try:
         if re.search("\.+", list_name) != None:
@@ -61,7 +61,7 @@ async def create_list(list_name = None):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
     
-@BOT.command()
+@BOT.command(aliases=["rl"])
 async def remove_list(list_name = None, *items):
     print("======================================")
     print("Command remove_list")
@@ -99,7 +99,7 @@ def remove_line(line, items):
             
     return False
         
-@BOT.command()
+@BOT.command(aliases=["dl"])
 async def delete_list(list_name = None):
     print("======================================")
     print("Command delete_list")

@@ -25,15 +25,26 @@ async def on_message(message):
     print("Message received")
     
     user = str(message.author)
+    content = message.content.lower()
     
     if user == USERNAME:
         pass
-    elif message.content.find("enfia no cu") != -1:
-        await BOT.send_message(message.channel, "Isso meu garoto")
-    elif message.content.find("13") != -1:
+    elif find_quote(content, ["13"]):
         await BOT.send_message(message.channel, "É 13 MEMO CARAIO")
+    elif find_quote(content, ["amor"]):
+        await BOT.send_message(message.channel, "Só só só só amor faz o mundo andar")
+    elif find_quote(content, ["enfia no cu", "enfiar no cu"]):
+        await BOT.send_message(message.channel, "Isso meu garoto")
         
     await BOT.process_commands(message)
+    
+def find_quote(message, quotes):
+
+    for quote in quotes:
+        if message.find(quote) != -1:
+            return True
+            
+    return False
 
 @BOT.event
 async def on_message_delete(message):
