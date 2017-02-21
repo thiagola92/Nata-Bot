@@ -7,6 +7,7 @@ import bot_default
 import bot_list
 import bot_random
 import bot_overwatch
+import bot_youtube
 
 # Others
 import time
@@ -15,9 +16,6 @@ import time
 async def on_ready():
     print("======================================")
     print("Bot is ready")
-    
-    for channel in BOT.get_all_channels():
-        print(str(channel))
     
 @BOT.event
 async def on_message(message):
