@@ -2,7 +2,7 @@ import discord.voice_client
 from bot_info import BOT
 
 @BOT.command(aliases=["yp"], pass_context=True)
-async def youtube_play(context, url):
+async def youtube_play(context, url=""):
     print("======================================")
     print("Command youtube_play")
     
@@ -14,11 +14,14 @@ async def youtube_play(context, url):
     '''
     
     try:
-        channel = context.message.author.voice.voice_channel
-        voice = await BOT.join_voice_channel(channel)
+        voice = BOT.voice_client_in(context.message.server)
+        
+        if voice is None:
+            channel = context.message.author.voice.voice_channel
+            voice = await BOT.join_voice_channel(channel)
         
         player = await voice.create_ytdl_player('https://www.youtube.com/watch?v=nYCOA2jQ-XA')
-        #player.start()
+        player.start()
         
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
