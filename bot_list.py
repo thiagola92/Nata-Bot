@@ -40,7 +40,7 @@ async def add_list(list_name = None, *items):
             file.write(item + "\n")
             
         file.close()
-        await BOT.say("Chamou?")
+        await BOT.say("Added")
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
 
@@ -57,7 +57,7 @@ async def new_list(list_name = None):
         file = open(list_name_path, 'w')
         
         file.close()
-        await BOT.say("Ta")
+        await BOT.say("List {} created".format(list_name))
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
     
@@ -88,7 +88,7 @@ async def remove_list(list_name = None, *items):
             file.write(line + "\n")
             
         file.close()
-        await BOT.say("Filtrou")
+        await BOT.say("Removed")
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
         
@@ -110,6 +110,6 @@ async def delete_list(list_name = None):
             
         list_name_path = "list\\" + list_name
         os.remove(list_name_path)
-        await BOT.say("TA PEGANDO FOGO BIXO")
+        await BOT.say("Deleted")
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))

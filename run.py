@@ -27,12 +27,8 @@ async def on_message(message):
     
     if user == USERNAME:
         pass
-    elif find_quote(content, ["13"]):
-        await BOT.send_message(message.channel, "É 13 MEMO CARAIO")
-    elif find_quote(content, ["amor"]):
-        await BOT.send_message(message.channel, "Só só só só amor faz o mundo andar")
-    elif find_quote(content, ["enfia no cu", "enfiar no cu"]):
-        await BOT.send_message(message.channel, "Isso meu garoto")
+    #elif find_quote(content, ["Frase/palavra que esta procurando"]):
+    #    await BOT.send_message(message.channel, "Resposta do bot")
         
     await BOT.process_commands(message)
     

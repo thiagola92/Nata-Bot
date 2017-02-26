@@ -22,3 +22,38 @@ Attachments: []
 Author: ThiagoLA92
 Content: !ap genji2
 ======================================
+Server: Nata um pouco mais amigável
+Channel: geral
+Attachments: []
+Author: Villar
+Content: !yp my little faustao pentelho
+======================================
+Server: Nata um pouco mais amigável
+Channel: geral
+Attachments: []
+Author: Villar
+Content: !yp https://www.youtube.com/results?search_query=my+little+faustao+pentelho
+======================================
+Server: Nata um pouco mais amigável
+Channel: geral
+Attachments: []
+Author: NataBot
+Content: ```
+!math [expression...]
+
+Passe uma expressão matemática que **Python** conseguiria resolver e o Bot vai falar o resultado
+
+```
+======================================
+Server: Nata um pouco mais amigável
+Channel: geral
+Attachments: []
+Author: ThiagoLA92
+Content: !help math
+======================================
+Server: Nata um pouco mais amigável
+Channel: geral
+Attachments: []
+Author: Pobem
+Content: !yp irineu
+======================================

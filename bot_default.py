@@ -5,8 +5,15 @@ async def shutdown():
     print("======================================")
     print("Command close")
     
-    await BOT.say("Fudeu.. A privada quebrou") 
+    await BOT.say("Turning Off") 
     await BOT.close() 
+    
+@BOT.command(help = "Versão do Bot")
+async def version():
+    print("======================================")
+    print("Command version")
+    
+    await BOT.say("NataBot {}".format("**BETA**")) 
     
 @BOT.command(help = "Passe uma expressão matemática que **Python** conseguiria resolver e o Bot vai falar o resultado")
 async def math(*expression):
