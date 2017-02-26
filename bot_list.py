@@ -2,7 +2,7 @@ from info import BOT
 import re
 import os
 
-@BOT.command(aliases=["cl"])
+@BOT.command(aliases = ["cl"], help = "Lê tudo que esta na lista passada")
 async def call_list(list_name = None):
     print("======================================")
     print("Command call_list")
@@ -24,7 +24,7 @@ async def call_list(list_name = None):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
     
-@BOT.command(aliases=["al"])
+@BOT.command(aliases = ["al"], help = "Adiciona os items passados na lista")
 async def add_list(list_name = None, *items):
     print("======================================")
     print("Command add_list")
@@ -44,7 +44,7 @@ async def add_list(list_name = None, *items):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
 
-@BOT.command(aliases=["nl"])
+@BOT.command(aliases = ["nl"], help = "Cria uma lista nova")
 async def new_list(list_name = None):
     print("======================================")
     print("Command new_list")
@@ -61,7 +61,7 @@ async def new_list(list_name = None):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
     
-@BOT.command(aliases=["rl"])
+@BOT.command(aliases = ["rl"], help = "Remove os items passados da lista")
 async def remove_list(list_name = None, *items):
     print("======================================")
     print("Command remove_list")
@@ -99,7 +99,7 @@ def remove_line(line, items):
             
     return False
         
-@BOT.command(aliases=["dl"])
+@BOT.command(aliases = ["dl"], help = "Deleta uma lista")
 async def delete_list(list_name = None):
     print("======================================")
     print("Command delete_list")

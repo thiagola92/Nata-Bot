@@ -1,6 +1,6 @@
 from info import BOT
 
-@BOT.command()
+@BOT.command(help = "Desliga o Bot \n PS: Apenas o dono do Bot vai poder ligar ele")
 async def shutdown():
     print("======================================")
     print("Command close")
@@ -8,7 +8,7 @@ async def shutdown():
     await BOT.say("Fudeu.. A privada quebrou") 
     await BOT.close() 
     
-@BOT.command()
+@BOT.command(help = "Passe uma expressão matemática que **Python** conseguiria resolver e o Bot vai falar o resultado")
 async def math(*expression):
     print("======================================")
     print("Command math")

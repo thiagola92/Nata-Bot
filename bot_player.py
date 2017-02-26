@@ -3,7 +3,7 @@ from info import BOT
 
 player = None
 
-@BOT.command(aliases=["yp"], pass_context=True)
+@BOT.command(aliases=["yp"], pass_context=True, help = "Passe um link do youtube para tocar")
 async def youtube_play(context, url=""):
     print("======================================")
     print("Command youtube_play")
@@ -32,7 +32,7 @@ async def youtube_play(context, url=""):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
         
-@BOT.command(aliases=["ap"], pass_context=True)
+@BOT.command(aliases=["ap"], pass_context=True, help = "Fale o nome do audio que deve tocar")
 async def audio_play(context, mp3=""):
     print("======================================")
     print("Command audio_play")
