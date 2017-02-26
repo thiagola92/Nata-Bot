@@ -33,7 +33,7 @@ async def youtube_play(context, url=""):
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
         
 @BOT.command(aliases=["ap"], pass_context=True)
-async def audio_play(context, url=""):
+async def audio_play(context, mp3=""):
     print("======================================")
     print("Command audio_play")
     
@@ -55,7 +55,7 @@ async def audio_play(context, url=""):
             await voice.move_to(channel)
         
         if player is None or not player.is_playing():
-            player = await voice.create_ytdl_player(url)
+            player = voice.create_ffmpeg_player("audio/" + mp3)
             player.start()
         
     except Exception as e:
