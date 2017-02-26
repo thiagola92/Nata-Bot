@@ -1,4 +1,4 @@
-from bot_info import BOT
+from info import BOT
 from difflib import get_close_matches
 
 @BOT.command(aliases=["oh"])

@@ -1,4 +1,4 @@
-from bot_info import BOT
+from info import BOT
 import re
 import os
 

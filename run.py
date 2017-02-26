@@ -1,13 +1,13 @@
-from bot_info import BOT
-from bot_info import USERNAME
-from bot_info import TOKEN
+from info import BOT
+from info import USERNAME
+from info import TOKEN
 
 # Bot commands
 import bot_default
 import bot_list
 import bot_random
 import bot_overwatch
-import bot_youtube
+import bot_player
 
 # Others
 import time
@@ -69,6 +69,7 @@ async def hello():
     print("Command hello")
     
     await BOT.say("Hello World!")
-    
+
+
 
 BOT.run(TOKEN)
