@@ -1,7 +1,10 @@
 from info import BOT
+from discord.ext import commands
+
+# Others
 from difflib import get_close_matches
 
-@BOT.command(aliases = ["oh"], help = "Fale o nome de um heroi do overwatch e o Bot vai passar o link para a Wikia desse heroi")
+@BOT.command(aliases = ["oh"], help = "Passa o link da wikia do heroi passado")
 async def overwatch_hero(*hero):
     print("======================================")
     print("Command overwatch_hero")

@@ -66,6 +66,4 @@ async def hello():
     
     await BOT.say("Hello World!")
 
-
-
 BOT.run(TOKEN)

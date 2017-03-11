@@ -15,7 +15,7 @@ async def version():
     
     await BOT.say("NataBot {}".format("**BETA**")) 
     
-@BOT.command(help = "Passe uma expressão matemática que **Python** conseguiria resolver e o Bot vai falar o resultado")
+@BOT.command(help = "Python resolve uma expressão matemática")
 async def math(*expression):
     print("======================================")
     print("Command math")

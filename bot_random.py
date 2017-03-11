@@ -1,8 +1,9 @@
 from info import BOT
 
+# Others
 from random import randint
 
-@BOT.command(help = "O Bot vai te dar um número entre 1 e o número que você passou")
+@BOT.command(help = "Um número entre 1 e o número que você passou")
 async def dice(max_value = 100):
     print("======================================")
     print("Command dice")
@@ -13,7 +14,7 @@ async def dice(max_value = 100):
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
 
-@BOT.command(help = "Passe varias opções e o Bot vai sortear uma delas")
+@BOT.command(help = "Escolhi uma das opções passadas")
 async def choose(*options):
     print("======================================")
     print("Command choose")
@@ -23,4 +24,3 @@ async def choose(*options):
         await BOT.say(options[number])
     except Exception as e:
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
-    

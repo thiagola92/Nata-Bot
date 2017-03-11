@@ -1,5 +1,6 @@
 from info import BOT
 import discord.voice_client
+import re
 import os
 
 player = None
@@ -8,13 +9,6 @@ player = None
 async def youtube_play(context, url=""):
     print("======================================")
     print("Command youtube_play")
-    
-    '''
-        Acredito que BOT.join_voice_channel() já verifique se opus library foi carregada.
-        Mas caso algum dia descubra que não, use
-            discord.opus.is_loaded(); para ver que foi carregada
-            discord.opus.load_opus(); para carregar (caso precise de parametro tente passar "opus")
-    '''
     
     global player
     try:
@@ -39,14 +33,8 @@ async def audio_play(context, mp3=""):
     print("======================================")
     print("Command audio_play")
     
-    '''
-        Acredito que BOT.join_voice_channel() já verifique se opus library foi carregada.
-        Mas caso algum dia descubra que não, use
-            discord.opus.is_loaded(); para ver que foi carregada
-            discord.opus.load_opus(); para carregar (caso precise de parametro tente passar "opus")
-    '''
-    
     global player
+    
     try:
         if re.search("\.+", mp3) != None:
             raise Exception("No permisson to use Wildcards")
@@ -68,10 +56,23 @@ async def audio_play(context, mp3=""):
         await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
         
         
-@BOT.command(aliases = ["sa"], help = "Exibir todos os audios no diretório")
-async def show_audios():
+@BOT.command(aliases = ["youtube_stop", "as", "ys"], help = "Cancela o player do audio/youtube")
+async def audio_stop():
     print("======================================")
-    print("Command show_audios")
+    print("Command audio_stop")
+    
+    global player
+    
+    try:
+        if player is not None:
+            player.stop()
+    except Exception as e:
+        await BOT.say("```{}``` \n Hey newbie! Use **!help COMMAND** to learn more about it".format(e))
+
+@BOT.command(aliases = ["ac"], help = "Exibir todos os audios no diretório")
+async def audio_catalog():
+    print("======================================")
+    print("Command audio_catalog")
     
     every_file = os.listdir("./audio")
     message = ""
